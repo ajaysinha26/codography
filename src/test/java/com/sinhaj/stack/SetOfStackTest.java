@@ -46,6 +46,17 @@ public class SetOfStackTest {
         assertEquals(true, setOfStack.isEmpty());
     }
 
+    @Test
+    public void testShouldPushElementsToFullCapacityOfStackAndPopThemBack() throws Exception {
+        for(int i = 1; i <= 1000; i++) {
+            setOfStack.push(i);
+        }
+        for(int i = 1000; i >= 1; i--) {
+            int pop = setOfStack.pop();
+            assertEquals(i, pop);
+        }
+    }
+
     @Test(expected = RuntimeException.class)
     public void testShouldThrowStackEmptyException() throws Exception {
         setOfStack.pop();
